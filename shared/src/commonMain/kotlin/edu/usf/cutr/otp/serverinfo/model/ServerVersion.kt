@@ -1,7 +1,9 @@
 package edu.usf.cutr.otp.serverinfo.model
 
-import java.util.*
+import kotlinx.serialization.Polymorphic
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class ServerVersion (
     var version: String? = null,
     var major: Int? = null,
@@ -17,5 +19,5 @@ data class ServerVersion (
     var longVersionString: String? = null,
     var shortVersionString: String? = null,
     var uid: Int? = null,
-    val additionalProperties: MutableMap<String, Any> = HashMap()
+    val additionalProperties: MutableMap<String,@Polymorphic Any> = HashMap()
 )
