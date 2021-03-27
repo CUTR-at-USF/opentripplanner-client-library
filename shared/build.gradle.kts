@@ -5,7 +5,7 @@ val coroutineVersion = "1.4.2"
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
-    kotlin("plugin.serialization")
+    id("kotlinx-serialization")
 }
 
 kotlin {
@@ -24,7 +24,7 @@ kotlin {
                 implementation(
                     "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
                 implementation(
-                    "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
+                    "org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
             }
         }

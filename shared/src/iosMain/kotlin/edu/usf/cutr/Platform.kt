@@ -1,8 +1,7 @@
 package edu.usf.cutr
 
-//import platform.UIKit.UIDevice
-//
-//actual class Platform actual constructor() {
-//    actual val platform: String =
-//        UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
-//}
+
+actual class Platform actual constructor() {
+    actual val platform: String =
+        "ios"
+}
