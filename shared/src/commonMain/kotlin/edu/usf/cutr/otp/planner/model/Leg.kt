@@ -5,8 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Leg (
-    val startTime: Int? = null,
-    val endTime: Int? = null,
+    val startTime: Long? = null,
+    val endTime: Long? = null,
     val departureDelay: Int? = null,
     val arrivalDelay: Int? = null,
     val realTime: Boolean? = null,

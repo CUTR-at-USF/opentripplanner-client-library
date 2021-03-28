@@ -9,7 +9,7 @@ import io.ktor.client.request.*
 import kotlinx.serialization.json.Json
 
 class PlannerApi() {
-    private val testUrl = "http://localhost:8080/otp/routers/default/plan?fromPlace=41.84712%2c-87.64678&toPlace=41.84584%2c-87.65214"
+    private val testUrl = "http://10.0.2.2:8080/otp/routers/default/plan?fromPlace=41.84712%2c-87.64678&toPlace=41.84584%2c-87.65214"
 
     fun getPlannerResource(
         success: (Planner) -> Unit, failure: (Throwable?) -> Unit) {

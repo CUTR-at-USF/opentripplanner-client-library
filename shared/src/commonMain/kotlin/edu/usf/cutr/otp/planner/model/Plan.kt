@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Plan
 (
-    val date: Int? = null,
+    val date: Long? = null,
     val from: From? = null,
     val to: To? = null,
     val itineraries: List<Itinerary>? = null,

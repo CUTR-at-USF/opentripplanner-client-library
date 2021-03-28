@@ -6,8 +6,8 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Itinerary (
     val duration: Int? = null,
-    val startTime: Int? = null,
-    val endTime: Int? = null,
+    val startTime: Long? = null,
+    val endTime: Long? = null,
     val walkTime: Int? = null,
     val transitTime: Int? = null,
     val waitingTime: Int? = null,

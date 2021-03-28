@@ -8,7 +8,7 @@ import kotlinx.serialization.Serializable
 data class Metadata
 (
     val searchWindowUsed: Int? = null,
-    val nextDateTime: Int? = null,
-    val prevDateTime: Int? = null,
+    val nextDateTime: Long? = null,
+    val prevDateTime: Long? = null,
     val additionalProperties: MutableMap<String,@Polymorphic Any> = HashMap()
 )

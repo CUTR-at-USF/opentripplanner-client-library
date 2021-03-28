@@ -12,7 +12,7 @@ data class RequestParameters
     val toPlace: String? = null,
     val alightSlack: Int? = null,
     val arriveBy: Boolean? = false,
-    val traverseModes: TraverseModes?,
+    val traverseModes: TraverseModes? = null,
     val optimizeType: OptimizeType? = OptimizeType.QUICK,
     val intermediatePlaces: List<String>? = null,
     val maxWalkDistance: Double? = Double.MAX_VALUE,
