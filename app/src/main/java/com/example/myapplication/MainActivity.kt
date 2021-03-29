@@ -18,8 +18,8 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import edu.usf.cutr.otp.bike_rental.api.BikeRentalApi
 import edu.usf.cutr.otp.plan.api.PlannerApi
-import edu.usf.cutr.otp.plan.model.Planner
 import edu.usf.cutr.otp.plan.model.RequestParameters
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
@@ -27,7 +27,8 @@ import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
 
-    private lateinit var api: PlannerApi
+    private lateinit var planApi: PlannerApi
+    private lateinit var bikeRentalApi: BikeRentalApi
     private lateinit var job: Job
     private lateinit var requestParameters: RequestParameters
     private val TAG = "MainActivity"
@@ -40,13 +41,25 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         setContentView(R.layout.activity_main)
 
         job = Job()
+
+        //plan api
         requestParameters = RequestParameters(
             fromPlace = latLong(41.84712, -87.64678),
             toPlace = latLong(41.84584, -87.65214),
             arriveBy = "false")
-        api = PlannerApi("10.0.2.2", 8080, requestParameters)
-        api.getPlan(
+        planApi = PlannerApi("10.0.2.2", 8080, requestParameters)
+        planApi.getPlan(
             success = { launch (Main) { logData(it) } },
+            failure = ::handleError
+        )
+
+        // bike_rental api
+        bikeRentalApi = BikeRentalApi("10.0.2.2", 8080,
+            lowerLeft = latLong(41.81712, -87.62678),
+            upperRight = latLong(41.84584, -87.65214))
+
+        bikeRentalApi.getBikeRental(
+            success = {launch (Main) { logData(it) }},
             failure = ::handleError
         )
     }
