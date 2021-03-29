@@ -1,4 +1,4 @@
-package edu.usf.cutr.otp.planner.model.core
+package edu.usf.cutr.otp.plan.model.core
 
 import kotlinx.serialization.Serializable
 

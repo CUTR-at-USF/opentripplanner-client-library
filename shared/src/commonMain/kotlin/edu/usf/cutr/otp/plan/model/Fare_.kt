@@ -1,11 +1,9 @@
-package edu.usf.cutr.otp.planner.model
+package edu.usf.cutr.otp.plan.model
 
 import kotlinx.serialization.Polymorphic
 import kotlinx.serialization.Serializable
 
 @Serializable
-class Fare {
-    val fare: Fare_? = null
-    val details: Details? = null
+data class Fare_ (
     val additionalProperties: MutableMap<String,@Polymorphic Any> = HashMap()
-}
+)

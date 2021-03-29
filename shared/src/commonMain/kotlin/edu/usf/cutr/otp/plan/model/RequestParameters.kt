@@ -1,7 +1,7 @@
-package edu.usf.cutr.otp.planner.model
+package edu.usf.cutr.otp.plan.model
 
-import edu.usf.cutr.otp.planner.model.core.OptimizeType
-import edu.usf.cutr.otp.planner.model.core.TraverseModes
+import edu.usf.cutr.otp.plan.model.core.OptimizeType
+import edu.usf.cutr.otp.plan.model.core.TraverseModes
 import kotlinx.serialization.Polymorphic
 import kotlinx.serialization.Serializable
 

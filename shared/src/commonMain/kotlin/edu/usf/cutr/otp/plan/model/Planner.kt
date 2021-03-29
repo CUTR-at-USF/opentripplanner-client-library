@@ -1,5 +1,6 @@
-package edu.usf.cutr.otp.planner.model
+package edu.usf.cutr.otp.plan.model
 
+import edu.usf.cutr.otp.plan.model.error.Error
 import kotlinx.serialization.Polymorphic
 import kotlinx.serialization.Serializable
 
@@ -8,6 +9,7 @@ data class Planner
 (
     val requestParameters: RequestParameters? = null,
     val plan: Plan? = null,
+    val error: Error? = null,
     val metadata: Metadata? = null,
     val debugOutput: DebugOutput? = null,
     val elevationMetadata: ElevationMetadata? = null,

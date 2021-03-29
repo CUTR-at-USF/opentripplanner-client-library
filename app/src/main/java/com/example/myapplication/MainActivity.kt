@@ -3,10 +3,9 @@ package com.example.myapplication
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.google.android.material.snackbar.Snackbar
-import edu.usf.cutr.otp.planner.api.PlannerApi
-import edu.usf.cutr.otp.planner.model.Planner
-import edu.usf.cutr.otp.planner.model.RequestParameters
+import edu.usf.cutr.otp.plan.api.PlannerApi
+import edu.usf.cutr.otp.plan.model.Planner
+import edu.usf.cutr.otp.plan.model.RequestParameters
 import kotlinx.coroutines.*
 import kotlinx.coroutines.Dispatchers.Main
 import kotlin.coroutines.CoroutineContext
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             toPlace = latLong(41.84584, -87.65214),
             arriveBy = "false")
         api = PlannerApi("10.0.2.2", 8080, requestParameters)
-        api.getPlannerResource(
+        api.getPlan(
             success = { launch (Main) { logData(it) } },
             failure = ::handleError
         )

@@ -1,4 +1,4 @@
-package edu.usf.cutr.otp.planner.model.error
+package edu.usf.cutr.otp.plan.model.error
 
 import kotlinx.serialization.Polymorphic
 import kotlinx.serialization.Serializable
