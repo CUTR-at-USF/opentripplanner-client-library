@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         )
     }
 
-    private fun logData(planner: Planner) {
-        Log.d(TAG, "logData: $planner")
+    private fun <T: Any> logData(t : T) {
+        Log.d(TAG, "logData: $t")
     }
 
     private fun handleError(ex: Throwable?) {
