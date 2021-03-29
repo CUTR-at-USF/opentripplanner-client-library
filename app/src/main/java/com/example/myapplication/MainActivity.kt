@@ -28,7 +28,8 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         job = Job()
         requestParameters = RequestParameters(
             fromPlace = latLong(41.84712, -87.64678),
-            toPlace = latLong(41.84584, -87.65214))
+            toPlace = latLong(41.84584, -87.65214),
+            arriveBy = "false")
         api = PlannerApi("10.0.2.2", 8080, requestParameters)
         api.getPlannerResource(
             success = { launch (Main) { logData(it) } },
