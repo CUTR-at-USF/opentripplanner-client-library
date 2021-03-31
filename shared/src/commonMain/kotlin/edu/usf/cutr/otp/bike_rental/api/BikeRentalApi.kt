@@ -17,6 +17,7 @@
 package edu.usf.cutr.otp.bike_rental.api
 
 import edu.usf.cutr.otp.ApplicationDispatcher
+import edu.usf.cutr.otp.bike_rental.model.Station
 import edu.usf.cutr.otp.bike_rental.model.Stations
 import edu.usf.cutr.otp.plan.model.Planner
 import io.ktor.client.*
@@ -54,7 +55,7 @@ class BikeRentalApi(private val host: String,
         }
     }
 
-    fun buildParameters(locale: String?, lowerLeft: String?, upperRight: String?): ParametersBuilder {
+    private fun buildParameters(locale: String?, lowerLeft: String?, upperRight: String?): ParametersBuilder {
         val parameters = ParametersBuilder()
         if (locale != null) {
             parameters.append("locale", locale)
