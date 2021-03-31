@@ -46,7 +46,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginTop="30sp"
         android:layout_marginBottom="100sp"
         android:id="@+id/response_view"
         />
