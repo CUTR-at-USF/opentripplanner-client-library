@@ -15,15 +15,19 @@
  */
 package com.example.myapplication
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import edu.usf.cutr.otp.bike_rental.api.BikeRentalApi
 import edu.usf.cutr.otp.plan.api.PlannerApi
 import edu.usf.cutr.otp.plan.model.RequestParameters
 import edu.usf.cutr.otp.serverinfo.api.ServerInfoApi
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
@@ -35,6 +39,12 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
     private lateinit var requestParameters: RequestParameters
     private val TAG = "MainActivity"
 
+    //ui
+    private lateinit var planButton: Button
+    private lateinit var bikeRentalButton: Button
+    private lateinit var serverInfoButton: Button
+    private lateinit var responseText: TextView
+
     override val coroutineContext: CoroutineContext
         get() = job + Main
 
@@ -44,36 +54,46 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
         job = Job()
 
-        //plan api
-        requestParameters = RequestParameters(
-            fromPlace = latLong(41.84712, -87.64678),
-            toPlace = latLong(41.84584, -87.65214),
-            arriveBy = "false")
-        planApi = PlannerApi("10.0.2.2", 8080, requestParameters)
-        planApi.getPlan(
-            success = { launch (Main) { logData(it) } },
-            failure = ::handleError
-        )
+        // ui init
+        planButton = findViewById(R.id.plan_button)
+        bikeRentalButton = findViewById(R.id.bike_rental_button)
+        serverInfoButton = findViewById(R.id.server_info_button)
+        responseText = findViewById(R.id.response_view)
 
-        // bike_rental api
-        bikeRentalApi = BikeRentalApi("10.0.2.2", 8080,
-            lowerLeft = latLong(41.81712, -87.62678),
-            upperRight = latLong(41.84584, -87.65214))
+        planButton.setOnClickListener {
+            requestParameters = RequestParameters(
+                fromPlace = latLong(41.84712, -87.64678),
+                toPlace = latLong(41.84584, -87.65214),
+                arriveBy = "false")
+            planApi = PlannerApi("10.0.2.2", 8080, requestParameters)
+            planApi.getPlan(
+                success = { launch (Main) { logData(it) } },
+                failure = ::handleError
+            )
+        }
 
-        bikeRentalApi.getBikeRental(
-            success = {launch (Main) { logData(it) }},
-            failure = ::handleError
-        )
+        bikeRentalButton.setOnClickListener {
+            bikeRentalApi = BikeRentalApi("10.0.2.2", 8080,
+                lowerLeft = latLong(41.81712, -87.62678),
+                upperRight = latLong(41.84584, -87.65214))
 
-        // serverinfo
-        serverInfoApi = ServerInfoApi("10.0.2.2", 8080)
-        serverInfoApi.getServerInfo(
-            success = {launch (Main) { logData(it) }},
-            failure = ::handleError
-        )
+            bikeRentalApi.getBikeRental(
+                success = {launch (Main) { logData(it) }},
+                failure = ::handleError
+            )
+        }
+
+        serverInfoButton.setOnClickListener {
+            serverInfoApi = ServerInfoApi("10.0.2.2", 8080)
+            serverInfoApi.getServerInfo(
+                success = {launch (Main) { logData(it) }},
+                failure = ::handleError
+            )
+        }
     }
 
     private fun <T: Any> logData(t : T) {
+        responseText.text = "$t"
         Log.d(TAG, "logData: $t")
     }
 
