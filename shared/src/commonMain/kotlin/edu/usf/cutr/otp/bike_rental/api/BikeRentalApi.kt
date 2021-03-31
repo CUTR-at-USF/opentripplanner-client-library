@@ -17,9 +17,7 @@
 package edu.usf.cutr.otp.bike_rental.api
 
 import edu.usf.cutr.otp.ApplicationDispatcher
-import edu.usf.cutr.otp.bike_rental.model.Station
 import edu.usf.cutr.otp.bike_rental.model.Stations
-import edu.usf.cutr.otp.plan.model.Planner
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
@@ -27,8 +25,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 
-class BikeRentalApi(private val host: String,
-                    private val port: Int,
+class BikeRentalApi(private val url: String,
                     private val locale: String? = null,
                     private val lowerLeft: String? = null,
                     private val upperRight: String? = null) {
@@ -40,11 +37,8 @@ class BikeRentalApi(private val host: String,
             try {
                 val parameters = buildParameters(locale, lowerLeft, upperRight)
                 val url = URLBuilder(
-                    protocol = URLProtocol.HTTP,
-                    host = host,
-                    port = port,
                     parameters = parameters,
-                ).path("otp", "routers", "default", "bike_rental").buildString()
+                ).takeFrom(url).buildString()
 
                 val json = HttpClient().get<String>(url)
                 Json.decodeFromString(Stations.serializer(), json).also(success)

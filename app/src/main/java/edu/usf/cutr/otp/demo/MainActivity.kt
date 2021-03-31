@@ -21,7 +21,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import edu.usf.cutr.otp.bike_rental.api.BikeRentalApi
-import edu.usf.cutr.otp.plan.api.PlannerApi
+import edu.usf.cutr.otp.plan.api.PlanApi
 import edu.usf.cutr.otp.plan.model.RequestParameters
 import edu.usf.cutr.otp.serverinfo.api.ServerInfoApi
 import kotlinx.coroutines.CoroutineScope
@@ -32,7 +32,7 @@ import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
 
-    private lateinit var planApi: PlannerApi
+    private lateinit var planApi: PlanApi
     private lateinit var bikeRentalApi: BikeRentalApi
     private lateinit var serverInfoApi: ServerInfoApi
     private lateinit var job: Job
@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
                 fromPlace = latLong(41.84712, -87.64678),
                 toPlace = latLong(41.84584, -87.65214),
                 arriveBy = "false")
-            planApi = PlannerApi("10.0.2.2", 8080, requestParameters)
+            planApi = PlanApi("http://10.0.2.2:8080/otp/routers/default/plan",  requestParameters)
             planApi.getPlan(
                 success = { launch (Main) { logData(it) } },
                 failure = ::handleError
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         }
 
         bikeRentalButton.setOnClickListener {
-            bikeRentalApi = BikeRentalApi("10.0.2.2", 8080,
+            bikeRentalApi = BikeRentalApi("http://10.0.2.2:8080/otp/routers/default/bike_rental",
                 lowerLeft = latLong(41.81712, -87.62678),
                 upperRight = latLong(41.84584, -87.65214))
 
@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         }
 
         serverInfoButton.setOnClickListener {
-            serverInfoApi = ServerInfoApi("10.0.2.2", 8080)
+            serverInfoApi = ServerInfoApi("http://10.0.2.2:8080/otp")
             serverInfoApi.getServerInfo(
                 success = {launch (Main) { logData(it) }},
                 failure = ::handleError

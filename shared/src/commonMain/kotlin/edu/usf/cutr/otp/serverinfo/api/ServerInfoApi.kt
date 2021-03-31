@@ -1,7 +1,6 @@
 package edu.usf.cutr.otp.serverinfo.api
 
 import edu.usf.cutr.otp.ApplicationDispatcher
-import edu.usf.cutr.otp.bike_rental.model.Stations
 import edu.usf.cutr.otp.serverinfo.model.ServerInfo
 import io.ktor.client.*
 import io.ktor.client.request.*
@@ -10,8 +9,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 
-class ServerInfoApi (private val host: String,
-                     private val port: Int) {
+class ServerInfoApi (private val url: String) {
 
     fun getServerInfo(
         success: (ServerInfo) -> Unit, failure: (Throwable?) -> Unit) {
@@ -19,10 +17,7 @@ class ServerInfoApi (private val host: String,
         GlobalScope.launch(ApplicationDispatcher) {
             try {
                 val url = URLBuilder(
-                    protocol = URLProtocol.HTTP,
-                    host= host,
-                    port = port,
-                ).path("otp").build()
+                ).takeFrom(url).build()
 
                 val json = HttpClient().get<String>(url)
                 Json.decodeFromString(ServerInfo.serializer(), json).also(success)

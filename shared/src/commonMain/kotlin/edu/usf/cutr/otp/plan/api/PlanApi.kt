@@ -19,16 +19,15 @@ package edu.usf.cutr.otp.plan.api
 import edu.usf.cutr.otp.ApplicationDispatcher
 import edu.usf.cutr.otp.plan.model.Planner
 import edu.usf.cutr.otp.plan.model.RequestParameters
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 
-class PlannerApi(private val host: String,
-                 private val port: Int,
-                 private val requestParameters: RequestParameters) {
+class PlanApi(private val url: String,
+              private val requestParameters: RequestParameters) {
 
     //private val testUrl = "http://10.0.2.2:8080/otp/routers/default/plan?fromPlace=41.84712%2c-87.64678&toPlace=41.84584%2c-87.65214"
 
@@ -39,11 +38,8 @@ class PlannerApi(private val host: String,
             try {
                 val parameters = buildParameters(requestParameters)
                 val url = URLBuilder(
-                    protocol = URLProtocol.HTTP,
-                    host = host,
-                    port = port,
                     parameters = parameters,
-                ).path("otp", "routers", "default", "plan").buildString()
+                ).takeFrom(url).buildString()
                 val json = HttpClient().get<String>(url)
 
                 Json.decodeFromString(Planner.serializer(), json).also(success)
