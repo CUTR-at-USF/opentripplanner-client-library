@@ -56,6 +56,11 @@ class PlanApi(private val url: String,
             }
         }
     }
+    /**
+     * Function to build the parameter values that is appended to the URL above
+     * @param requestParameters - A RequestParameters.kt object to be appended with the URL.
+     * @return ParameterBuilder class used by URL Builder.
+     */
 
     private fun buildParameters(requestParameters: RequestParameters): ParametersBuilder {
         val parameters = ParametersBuilder()
