@@ -27,7 +27,7 @@ import kotlinx.serialization.json.Json
 
 /**
  * Manager Class to make HTTP requests to the OTP Bike Rental API
- * @param url - Full URL to Bike Rental Information, Ex: "http://10.0.2.2:8080/otp/routers/default/bike_rental"
+ * @param url - Full URL to Bike Rental Information, Ex: "https://10.0.2.2:8080/otp/routers/default/bike_rental"
  */
 
 class BikeRentalApi(private val url: String,
