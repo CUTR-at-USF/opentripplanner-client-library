@@ -1,23 +1,36 @@
-# OpenTripPlanner Client Library [![Java with Gradle](https://github.com/CUTR-at-USF/opentripplanner-client-library/actions/workflows/gradle.yml/badge.svg)](https://github.com/CUTR-at-USF/opentripplanner-client-library/actions/workflows/gradle.yml)
+# OpenTripPlanner Client Library [![Gradle CI](https://github.com/CUTR-at-USF/opentripplanner-client-library/actions/workflows/gradle.yml/badge.svg)](https://github.com/CUTR-at-USF/opentripplanner-client-library/actions/workflows/gradle.yml)
 
-A full-featured kotlin multiplatform library designed to minimize developer friction in creating complex API calls to the Open Trip Planner v2 web service.
+A Kotlin Multiplatform library for making API requests and parsing responses from an [OpenTripPlanner v2 server](http://www.opentripplanner.org/).
 
 ## Prerequisites
-1) Install Android Studio (preferably version `4.1.3`).
-2) Before you import the project, install Kotlin MultiPlatform Mobile plugin. You can install it by navigating through Settings (Preferences if on MacOS) -> Plugins -> Kotlin Multplatform Mobile -> Install
+1) Install [Android Studio](https://developer.android.com/studio) (preferably version `4.1.3` or higher).
+2) Before you import the project, install Kotlin MultiPlatform Mobile plugin via Settings (Preferences if on MacOS) -> Plugins -> Kotlin Multplatform Mobile -> Install
 
 ## Build
-Import the project and click on the green play button on top.
+Import the project and click on the green play button on top to run the Android demo app
 
 ## Testing
-1) If you're testing on a Physical device, make sure to change the host to `localhost` or `127.0.0.1` in the API constructors and also make note of the port number.
-2) After installation, pay attention to the logs. The json responses will be logged in the `debug` with the tag `MainActivity`.
+1) If you're testing the demo Android app on a physical device, make sure to change the host to `localhost` or `127.0.0.1` in the API constructors and also make note of the port number your OTP server is running on.
+2) When running the Android app, OTP API responses will be logged in LogCat with the tag `MainActivity`.
 
 ## Release
-To create a AAR release of the library, run the following command. This command generates AAR files in library/build/outputs/aar
+To create a release of the library on each platform, run the following commands.
+
+#### Android
+
+This command generates AAR files in `library/build/outputs/aar`:
+
 ```
 ./gradlew :library:build
 ```
+
+#### iOS
+
+TODO
+
+#### Desktop Java/Kotlin
+
+TODO
 
 ## License
 ```
