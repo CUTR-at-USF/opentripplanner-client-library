@@ -13,6 +13,14 @@ Import the project and click on the green play button on top.
 1) If you're testing on a Physical device, make sure to change the host to `localhost` or `127.0.0.1` in the API constructors and also make note of the port number.
 2) After installation, pay attention to the logs. The json responses will be logged in the `debug` with the tag `MainActivity`.
 
+## Release
+
+To create a AAR release of the library, run the following command. This command generates AAR files in library/build/outputs/aar
+
+```
+./gradlew :library:build
+```
+
 ## License
 ```
 /*
