@@ -28,7 +28,7 @@ import kotlinx.serialization.json.Json
 
 /**
  * Manager Class to make HTTP requests to the OTP Planner resource API
- *@param url - Full URL to Planner Resource API, Ex: "http://10.0.2.2:8080/otp/routers/default/plan"
+ *@param url - Full URL to Planner Resource API, Ex: "https://10.0.2.2:8080/otp/routers/default/plan"
  */
 
 class PlanApi(private val url: String,
