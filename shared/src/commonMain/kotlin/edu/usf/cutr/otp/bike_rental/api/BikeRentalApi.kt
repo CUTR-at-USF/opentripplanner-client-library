@@ -25,11 +25,20 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 
+/**
+ * Manager Class to make HTTP requests to the OTP Bike Rental API
+ */
+
 class BikeRentalApi(private val url: String,
                     private val locale: String? = null,
                     private val lowerLeft: String? = null,
                     private val upperRight: String? = null) {
 
+    /**
+     * Function that fetches Bike Rental information.
+     * @param success -> Represents a successful communication with the server
+     * @param failure -> Represents a failed outcome.
+     */
     fun getBikeRental(
         success: (Stations) -> Unit, failure: (Throwable?) -> Unit) {
 
@@ -49,6 +58,9 @@ class BikeRentalApi(private val url: String,
         }
     }
 
+    /**
+     * Function to build the parameter values that is appended to the URL above
+     */
     private fun buildParameters(locale: String?, lowerLeft: String?, upperRight: String?): ParametersBuilder {
         val parameters = ParametersBuilder()
         if (locale != null) {

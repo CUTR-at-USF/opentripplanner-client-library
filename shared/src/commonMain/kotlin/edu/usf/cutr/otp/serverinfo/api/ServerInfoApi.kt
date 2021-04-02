@@ -9,7 +9,16 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 
+/**
+ * Manager Class to make HTTP requests to the OTP Server Info API
+ */
 class ServerInfoApi (private val url: String) {
+
+    /**
+     * Function that fetches Server information.
+     * @param success -> Represents a successful communication with the server
+     * @param failure -> Represents a failed outcome.
+     */
 
     fun getServerInfo(
         success: (ServerInfo) -> Unit, failure: (Throwable?) -> Unit) {

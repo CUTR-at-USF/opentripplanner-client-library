@@ -26,11 +26,19 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 
+/**
+ * Manager Class to make HTTP requests to the OTP Planner resource API
+ */
+
 class PlanApi(private val url: String,
               private val requestParameters: RequestParameters) {
 
-    //private val testUrl = "http://10.0.2.2:8080/otp/routers/default/plan?fromPlace=41.84712%2c-87.64678&toPlace=41.84584%2c-87.65214"
 
+    /**
+     * Function that fetches Planner resource information.
+     * @param success -> Represents a successful communication with the server
+     * @param failure -> Represents a failed outcome.
+     */
     fun getPlan(
         success: (Planner) -> Unit, failure: (Throwable?) -> Unit) {
 
