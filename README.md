@@ -14,9 +14,7 @@ Import the project and click on the green play button on top.
 2) After installation, pay attention to the logs. The json responses will be logged in the `debug` with the tag `MainActivity`.
 
 ## Release
-
 To create a AAR release of the library, run the following command. This command generates AAR files in library/build/outputs/aar
-
 ```
 ./gradlew :library:build
 ```
