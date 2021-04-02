@@ -1,4 +1,4 @@
-# Open Trip Planner Client Library [![Java with Gradle](https://github.com/CUTR-at-USF/opentripplanner-client-library/actions/workflows/gradle.yml/badge.svg)](https://github.com/CUTR-at-USF/opentripplanner-client-library/actions/workflows/gradle.yml)
+# OpenTripPlanner Client Library [![Java with Gradle](https://github.com/CUTR-at-USF/opentripplanner-client-library/actions/workflows/gradle.yml/badge.svg)](https://github.com/CUTR-at-USF/opentripplanner-client-library/actions/workflows/gradle.yml)
 
 A full-featured kotlin multiplatform library designed to minimize developer friction in creating complex API calls to the Open Trip Planner v2 web service.
 
