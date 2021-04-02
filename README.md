@@ -10,48 +10,48 @@ A Kotlin Multiplatform library for making API requests and parsing responses fro
 #### Plan API
 
 ```kotlin
-  private lateinit var planApi: PlanApi
-  ...
-  val requestParameters = RequestParameters(
-    fromPlace = latLong(41.84712, -87.64678),
-    toPlace = latLong(41.84584, -87.65214),
-    arriveBy = "false")
-  planApi = PlanApi("http://10.0.2.2:8080/otp/routers/default/plan",  requestParameters)
-  planApi.getPlan(
-      success = { launch (Main) {
-          Log.d(TAG, "logData: $it")
-      } },
-      failure = ::handleError
-  )
+private lateinit var planApi: PlanApi
+...
+val requestParameters = RequestParameters(
+  fromPlace = latLong(41.84712, -87.64678),
+  toPlace = latLong(41.84584, -87.65214),
+  arriveBy = "false")
+planApi = PlanApi("http://10.0.2.2:8080/otp/routers/default/plan",  requestParameters)
+planApi.getPlan(
+    success = { launch (Main) {
+        Log.d(TAG, "logData: $it")
+    } },
+    failure = ::handleError
+)
 ```
 
 #### Bike Rental API
 
 ```kotlin
-  private lateinit var bikeRentalApi: BikeRentalApi
-  ...
-  bikeRentalApi = BikeRentalApi("http://10.0.2.2:8080/otp/routers/default/bike_rental",
-      lowerLeft = latLong(41.81712, -87.62678),
-      upperRight = latLong(41.84584, -87.65214))
+private lateinit var bikeRentalApi: BikeRentalApi
+...
+bikeRentalApi = BikeRentalApi("http://10.0.2.2:8080/otp/routers/default/bike_rental",
+    lowerLeft = latLong(41.81712, -87.62678),
+    upperRight = latLong(41.84584, -87.65214))
 
-  bikeRentalApi.getBikeRental(
-      success = {launch (Main) { 
-          Log.d(TAG, "logData: $it") 
-      }},
-      failure = ::handleError
-  )
+bikeRentalApi.getBikeRental(
+    success = {launch (Main) { 
+        Log.d(TAG, "logData: $it") 
+    }},
+    failure = ::handleError
+)
 ```
 
 #### Server Info API
 
 ```kotlin
-  private lateinit var serverInfoApi: ServerInfoApi
-  ...
-  serverInfoApi = ServerInfoApi("http://10.0.2.2:8080/otp")
-  serverInfoApi.getServerInfo(
-      success = {launch (Main) { logData(it) }},
-      failure = ::handleError
-  )
+private lateinit var serverInfoApi: ServerInfoApi
+...
+serverInfoApi = ServerInfoApi("http://10.0.2.2:8080/otp")
+serverInfoApi.getServerInfo(
+    success = {launch (Main) { logData(it) }},
+    failure = ::handleError
+)
 ```
 
 ## Prerequisites
