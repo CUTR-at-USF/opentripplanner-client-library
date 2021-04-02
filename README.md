@@ -1,6 +1,9 @@
 # OpenTripPlanner Client Library [![Gradle CI](https://github.com/CUTR-at-USF/opentripplanner-client-library/actions/workflows/gradle.yml/badge.svg)](https://github.com/CUTR-at-USF/opentripplanner-client-library/actions/workflows/gradle.yml)
 
-A Kotlin Multiplatform library for making API requests and parsing responses from an [OpenTripPlanner v2 server](http://www.opentripplanner.org/).
+A Kotlin Multiplatform library for making API requests and parsing responses from an [OpenTripPlanner v2 server](http://www.opentripplanner.org/) for the following [OTP2 REST API](http://dev.opentripplanner.org/apidoc/2.0.0/index.html) endpoints:
+* [`/plan`](http://dev.opentripplanner.org/apidoc/2.0.0/resource_PlannerResource.html) - Trip planning from an origin to a destination
+* [`/bike_rental`](http://dev.opentripplanner.org/apidoc/2.0.0/resource_BikeRental.html) - List of bike rental stations
+* [`/otp`](http://dev.opentripplanner.org/apidoc/2.0.0/resource_ServerInfo.html) - Provides information about the OTP server (version, etc.)
 
 ## Prerequisites
 1) Install [Android Studio](https://developer.android.com/studio) (preferably version `4.1.3` or higher).
