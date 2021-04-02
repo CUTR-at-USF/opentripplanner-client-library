@@ -16,7 +16,8 @@
 
 package edu.usf.cutr.otp.bike_rental.model
 
-import kotlinx.serialization.*
+import kotlinx.serialization.Polymorphic
+import kotlinx.serialization.Serializable
 
 @Serializable
 data class Station (
