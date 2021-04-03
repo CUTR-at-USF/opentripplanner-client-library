@@ -32,7 +32,7 @@ import kotlinx.serialization.json.Json
  */
 
 class PlanApi(private val url: String,
-              private val requestParameters: RequestParameters) {
+              private val requestParameters: RequestParameters? = null) {
 
 
     /**
@@ -45,11 +45,16 @@ class PlanApi(private val url: String,
 
         GlobalScope.launch(ApplicationDispatcher) {
             try {
-                val parameters = buildParameters(requestParameters)
-                val url = URLBuilder(
-                    parameters = parameters,
-                ).takeFrom(url).buildString()
-                val json = HttpClient().get<String>(url)
+                val urlString = if (requestParameters != null) {
+                    val parameters = buildParameters(requestParameters)
+                    URLBuilder(
+                        parameters = parameters,
+                    ).takeFrom(url).buildString()
+                } else {
+                    URLBuilder(
+                    ).takeFrom(url).buildString()
+                }
+                val json = HttpClient().get<String>(urlString)
 
                 Json.decodeFromString(Planner.serializer(), json).also(success)
             } catch (ex: Exception) {
