@@ -1,0 +1,20 @@
+{
+  "serverVersion": {
+    "version": "2.0.0",
+    "major": 2,
+    "minor": 0,
+    "incremental": 0,
+    "qualifier": "",
+    "commit": "a64576040edff06e84033f2e78991a5ba56b2f78",
+    "branch": "v2.0.0",
+    "describe": "v2.0.0",
+    "commitTime": "2020-11-27T12:58:18+0000",
+    "buildTime": "2020-11-27T13:02:08+0000",
+    "dirty": false,
+    "uid": 2000000,
+    "longVersionString": "version: 2.0.0, commit: a64576040edff06e84033f2e78991a5ba56b2f78, branch: v2.0.0",
+    "shortVersionString": "OpenTripPlanner 2.0.0 a64576040edff06e84033f2e78991a5ba56b2f78"
+  },
+  "cpuName": "unknown",
+  "nCores": 0
+}
