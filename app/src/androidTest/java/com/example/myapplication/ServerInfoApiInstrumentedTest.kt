@@ -50,8 +50,8 @@ class ServerInfoApiInstrumentedTest: CoroutineScope {
         )
     }
 
-        private fun handleError(ex: Throwable?) {
-            assertEquals(0, 1)
-        }
+    private fun handleError(ex: Throwable?) {
+        assertEquals(0, 1)
+    }
 
 }
