@@ -79,7 +79,11 @@ This command generates AAR files in `library/build/outputs/aar`:
 
 #### iOS
 
-TODO
+This command generates Swift package files in `common/swiftpackage` directory:
+
+``` 
+./gradlew createSwiftPackage
+```
 
 #### Desktop Java/Kotlin
 
