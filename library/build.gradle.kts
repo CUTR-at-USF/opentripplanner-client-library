@@ -7,6 +7,7 @@ plugins {
     id("com.android.library")
     id("kotlinx-serialization")
     id("kotlin-android-extensions")
+    id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
 }
 
 kotlin {
@@ -69,3 +70,11 @@ val packForXcode by tasks.creating(Sync::class) {
     into(targetDir)
 }
 tasks.getByName("build").dependsOn(packForXcode)
+
+multiplatformSwiftPackage {
+    packageName("OpenTripPlannerClientLibrary")
+    swiftToolsVersion("5.3")
+    targetPlatforms {
+        iOS { v("13") }
+    }
+}
