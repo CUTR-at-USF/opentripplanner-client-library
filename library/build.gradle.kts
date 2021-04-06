@@ -11,6 +11,7 @@ plugins {
 
 kotlin {
     android()
+    jvm()
     ios {
         binaries {
             framework {
@@ -41,6 +42,12 @@ kotlin {
         val iosMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
+            }
+        }
+
+        val jvmMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-apache:$ktorVersion")
             }
         }
     }
