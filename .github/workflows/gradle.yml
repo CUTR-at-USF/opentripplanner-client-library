@@ -23,8 +23,7 @@ jobs:
     - name: Set up XCode
       uses: maxim-lobanov/setup-xcode@master
       with:
-        xcode-version: '12.2'
-        # xcode-version: latest-stable
+        xcode-version: '12.4'
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
