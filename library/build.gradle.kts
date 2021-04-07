@@ -9,6 +9,9 @@ plugins {
     id("kotlin-android-extensions")
 }
 
+group = "edu.usf.cutr.otp"
+version = "1.0"
+
 kotlin {
     android()
     jvm()
@@ -47,7 +50,7 @@ kotlin {
 
         val jvmMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-apache:$ktorVersion")
+                implementation("io.ktor:ktor-client-java:$ktorVersion")
             }
         }
     }
