@@ -14,7 +14,11 @@ version = "1.0"
 
 kotlin {
     android()
-    jvm()
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+    }
     ios {
         binaries {
             framework {
