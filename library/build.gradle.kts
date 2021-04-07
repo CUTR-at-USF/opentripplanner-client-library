@@ -7,10 +7,15 @@ plugins {
     id("com.android.library")
     id("kotlinx-serialization")
     id("kotlin-android-extensions")
+    id("maven-publish")
 }
 
 group = "edu.usf.cutr.otp"
-version = "1.0"
+version = "1.0.2"
+
+repositories {
+    mavenLocal()
+}
 
 kotlin {
     android()
@@ -55,6 +60,7 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-java:$ktorVersion")
+                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.4.2")
             }
         }
     }
