@@ -92,7 +92,11 @@ TODO
 
 #### Desktop Java/Kotlin
 
-TODO
+This command generates 4 Jar files in `library/build/libs` and we encourage to use `library-jvm-1.0.0.jar` for desktop applications.
+
+```
+./gradlew :library:build
+```
 
 ## License
 ```
