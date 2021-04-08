@@ -5,6 +5,11 @@ A Kotlin Multiplatform library for making API requests and parsing responses fro
 * [`/bike_rental`](http://dev.opentripplanner.org/apidoc/2.0.0/resource_BikeRental.html) - List of bike rental stations
 * [`/otp`](http://dev.opentripplanner.org/apidoc/2.0.0/resource_ServerInfo.html) - Provides information about the OTP server (version, etc.)
 
+Supported platforms are:
+* Android
+* iOS
+* JVM (Java/Kotlin)
+
 ## Example use (Android)
 
 #### Plan API
@@ -55,11 +60,20 @@ serverInfoApi.getServerInfo(
 ```
 
 ## Prerequisites
+
+If you use Android Studio:
 1) Install [Android Studio](https://developer.android.com/studio) (preferably version `4.1.3` or higher).
 2) Before you import the project, install Kotlin MultiPlatform Mobile plugin via Settings (Preferences if on MacOS) -> Plugins -> Kotlin Multplatform Mobile -> Install
 
+If you build from the command line using Gradle:
+1) Install [Java JDK 8 or higher](https://www.oracle.com/java/technologies/javase-downloads.html)
+
 ## Build
 Import the project into Android Studio
+
+Alternately, you can build from the command line using Gradle:
+
+`./gradlew build`
 
 ## Testing
 1. [Set up an OTP2 server](http://docs.opentripplanner.org/en/latest/Basic-Tutorial/) on your local machine, or get the URL for a public OTP2 server
@@ -87,7 +101,11 @@ This command generates Swift package files in `common/swiftpackage` directory:
 
 #### Desktop Java/Kotlin
 
-TODO
+This command generates four JAR files in `library/build/libs` and we encourage you to use `library-jvm-1.0.0.jar` for manually including dependencies:
+
+```
+./gradlew :library:build
+```
 
 ## License
 ```
