@@ -14,10 +14,6 @@ plugins {
 group = "edu.usf.cutr.otp"
 version = "1.0.0"
 
-repositories {
-    mavenLocal()
-}
-
 kotlin {
     android()
     jvm {
