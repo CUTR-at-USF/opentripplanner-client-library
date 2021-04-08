@@ -1,21 +1,18 @@
 
-val ktorVersion = "1.5.0"
-val coroutineVersion = "1.4.2"
+val ktorVersion = "1.5.3"
+val coroutineVersion = "1.4.3"
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("kotlinx-serialization")
     id("kotlin-android-extensions")
+    id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
     id("maven-publish")
 }
 
 group = "edu.usf.cutr.otp"
 version = "1.0.0"
-
-repositories {
-    mavenLocal()
-}
 
 kotlin {
     android()
@@ -27,7 +24,7 @@ kotlin {
     ios {
         binaries {
             framework {
-                baseName = "library"
+                baseName = "OpenTripPlannerClientLibrary"
             }
         }
     }
@@ -35,8 +32,11 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("org.jetbrains.kotlin:kotlin-stdlib-common")
-                implementation(
-                    "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion")
+                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion-native-mt") {
+                    version {
+                        strictly("$coroutineVersion-native-mt")
+                    }
+                }
                 implementation(
                     "org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
@@ -54,13 +54,18 @@ kotlin {
         val iosMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
+                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion-native-mt") {
+                    version {
+                        strictly("$coroutineVersion-native-mt")
+                    }
+                }
             }
         }
 
         val jvmMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-java:$ktorVersion")
-                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.4.2")
+                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-swing:$coroutineVersion")
             }
         }
     }
@@ -89,3 +94,11 @@ val packForXcode by tasks.creating(Sync::class) {
     into(targetDir)
 }
 tasks.getByName("build").dependsOn(packForXcode)
+
+multiplatformSwiftPackage {
+    packageName("OpenTripPlannerClientLibrary")
+    swiftToolsVersion("5.3")
+    targetPlatforms {
+        iOS { v("13") }
+    }
+}
