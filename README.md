@@ -5,6 +5,11 @@ A Kotlin Multiplatform library for making API requests and parsing responses fro
 * [`/bike_rental`](http://dev.opentripplanner.org/apidoc/2.0.0/resource_BikeRental.html) - List of bike rental stations
 * [`/otp`](http://dev.opentripplanner.org/apidoc/2.0.0/resource_ServerInfo.html) - Provides information about the OTP server (version, etc.)
 
+Supported platforms are:
+* Android
+* iOS
+* JVM (Java/Kotlin)
+
 ## Example use (Android)
 
 #### Plan API
