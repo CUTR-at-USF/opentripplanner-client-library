@@ -1,6 +1,6 @@
 
-val ktorVersion = "1.5.0"
-val coroutineVersion = "1.4.2"
+val ktorVersion = "1.5.3"
+val coroutineVersion = "1.4.3"
 
 plugins {
     kotlin("multiplatform")
