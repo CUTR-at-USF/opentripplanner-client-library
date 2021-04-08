@@ -7,10 +7,23 @@ plugins {
     id("com.android.library")
     id("kotlinx-serialization")
     id("kotlin-android-extensions")
+    id("maven-publish")
+}
+
+group = "edu.usf.cutr.otp"
+version = "1.0.0"
+
+repositories {
+    mavenLocal()
 }
 
 kotlin {
     android()
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+    }
     ios {
         binaries {
             framework {
@@ -41,6 +54,13 @@ kotlin {
         val iosMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
+            }
+        }
+
+        val jvmMain by getting {
+            dependencies {
+                implementation("io.ktor:ktor-client-java:$ktorVersion")
+                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-swing:1.4.2")
             }
         }
     }
