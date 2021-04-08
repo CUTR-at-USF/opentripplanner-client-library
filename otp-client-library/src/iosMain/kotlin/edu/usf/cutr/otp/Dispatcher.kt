@@ -1,8 +1,8 @@
 package edu.usf.cutr.otp
 
-import kotlin.coroutines.*
 import kotlinx.coroutines.*
 import platform.darwin.*
+import kotlin.coroutines.*
 
 internal actual val ApplicationDispatcher: CoroutineDispatcher = NsQueueDispatcher(dispatch_get_main_queue())
 
