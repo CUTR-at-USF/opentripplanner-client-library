@@ -30,6 +30,16 @@ planApi.getPlan(
 )
 ```
 
+You can set a URL parameter for an API key name and value (e.g., `plan?...&key=ABCD...`) if needed with:
+
+```kotlin
+...
+planApi = PlanApi(...)
+planApi.apiKey("key", "ABCD")
+planApi.getPlan(
+...
+```
+
 #### Bike Rental API
 
 ```kotlin

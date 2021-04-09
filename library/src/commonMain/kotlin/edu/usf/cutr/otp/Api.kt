@@ -34,7 +34,7 @@ abstract class Api {
      * @name name of the API key in the URL parameter
      * @value value of the API key in the URL parameter
      */
-    fun setApiKey(name: String, value: String) {
+    fun apiKey(name: String, value: String) {
         apiKeyName = name
         apiKeyValue = value
     }
