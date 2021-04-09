@@ -16,13 +16,8 @@
 
 package edu.usf.cutr.otp
 
-import io.ktor.client.*
-import io.ktor.client.request.*
-import io.ktor.http.*
-
 /**
- * Manager Class to make HTTP requests to the OTP Bike Rental API
- * @param url - Full URL to Bike Rental Information, Ex: "https://10.0.2.2:8080/otp/routers/default/bike_rental"
+ * Abstract class that holds information common to all API request types
  */
 
 abstract class Api {
