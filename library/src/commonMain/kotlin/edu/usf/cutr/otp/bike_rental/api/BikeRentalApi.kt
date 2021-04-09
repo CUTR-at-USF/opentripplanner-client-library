@@ -16,6 +16,7 @@
 
 package edu.usf.cutr.otp.bike_rental.api
 
+import edu.usf.cutr.otp.Api
 import edu.usf.cutr.otp.ApplicationDispatcher
 import edu.usf.cutr.otp.bike_rental.model.Stations
 import io.ktor.client.*
@@ -33,7 +34,7 @@ import kotlinx.serialization.json.Json
 class BikeRentalApi(private val url: String,
                     private val locale: String? = null,
                     private val lowerLeft: String? = null,
-                    private val upperRight: String? = null) {
+                    private val upperRight: String? = null): Api() {
 
     /**
      * Function that fetches Bike Rental information.
@@ -72,6 +73,9 @@ class BikeRentalApi(private val url: String,
         }
         if (upperRight != null) {
             parameters.append("upperRight", upperRight)
+        }
+        if (!apiKeyName.isNullOrEmpty() && !apiKeyValue.isNullOrEmpty()) {
+            parameters.append(apiKeyName, apiKeyValue)
         }
         return parameters
     }
