@@ -102,3 +102,44 @@ multiplatformSwiftPackage {
         iOS { v("13") }
     }
 }
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            setUrl("https://maven.pkg.github.com/octocat/hello-world")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        filterIsInstance<MavenPublication>().forEach { publication ->
+            publication.pom {
+                name.set(project.name)
+                description.set(project.description)
+                packaging = "jar"
+                url.set("https://github.com/serpro69/${project.name}")
+                developers {
+                    developer {
+                        id.set("serpro69")
+                        name.set("Sergii Prodan")
+                        email.set("serpro@disroot.org")
+                    }
+                }
+                licenses {
+                    license {
+                        name.set("MIT")
+                        url.set("https://github.com/serpro69/${project.name}/blob/master/LICENCE.md")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:https://github.com/serpro69/${project.name}.git")
+                    developerConnection.set("scm:git:git@github.com:serpro69/${project.name}.git")
+                    url.set("https://github.com/serpro69/${project.name}")
+                }
+            }
+        }
+    }
+}
