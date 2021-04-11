@@ -13,7 +13,7 @@ class PlanApiUnitTest {
     @Test
     fun testPlanApi() {
         val planApi =
-            PlanApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/tests/app/src/main/res/raw/chicago/plan.json")
+            PlanApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/tests/library/src/jvmTest/kotlin/edu/usf/cutr/otp/resources/chicago/plan.json")
         var planner = Planner()
         val latch = CountDownLatch(1)
 
