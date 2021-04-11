@@ -10,7 +10,7 @@ class ServerInfoApiUnitTest {
     @Test
     fun testServerInfoApi() {
         val serverInfoApi =
-            ServerInfoApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/tests/app/src/main/res/raw/server_info.json")
+            ServerInfoApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/tests/app/src/main/res/raw/chicago/server_info.json")
 
         var serverInfo = ServerInfo()
         val latch = CountDownLatch(1)
