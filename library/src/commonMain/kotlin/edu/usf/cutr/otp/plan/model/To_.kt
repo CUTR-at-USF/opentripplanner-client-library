@@ -22,9 +22,14 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class To_(
     val name: String? = null,
+    val stopId: String? = null,
+    val stopCode: String? = null,
+    val platformCode: String? = null,
+    val stopIndex: Int? = null,
     val lon: Double? = null,
     val lat: Double? = null,
     val arrival: Long? = null,
+    val departure: Long? = null,
     val vertexType: String? = null,
-    val additionalProperties: MutableMap<String,@Polymorphic Any> = HashMap()
+    val additionalProperties: MutableMap<String, @Polymorphic Any> = HashMap()
 )
