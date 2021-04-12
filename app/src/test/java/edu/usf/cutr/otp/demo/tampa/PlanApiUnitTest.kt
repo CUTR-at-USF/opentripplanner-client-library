@@ -42,9 +42,9 @@ class PlanApiUnitTest {
 
         assertEquals(1618170988000, planner.plan?.date)
         assertEquals("22nd St @ 115th Av", planner.plan?.from?.name)
-        assertEquals("1:5246", planner.plan?.from?.stopId)
-        assertEquals("5246", planner.plan?.from?.stopCode)
-        assertEquals("5246", planner.plan?.from?.platformCode)
+        assertEquals("1:4886", planner.plan?.from?.stopId)
+        assertEquals("4886", planner.plan?.from?.stopCode)
+        assertEquals("4886", planner.plan?.from?.platformCode)
         assertEquals(-82.434516, planner.plan?.from?.lon)
         assertEquals(28.052049, planner.plan?.from?.lat)
         assertEquals(48, planner.plan?.from?.stopIndex)
