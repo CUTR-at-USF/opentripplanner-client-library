@@ -17,8 +17,8 @@ class ServerInfoApiUnitTest {
 
         serverInfoApi.getServerInfo(
             success = {
-                latch.countDown()
                 serverInfo = it
+                latch.countDown()
             },
             failure = {
                 latch.countDown()

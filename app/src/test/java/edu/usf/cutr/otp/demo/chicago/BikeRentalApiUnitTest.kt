@@ -19,9 +19,10 @@ class BikeRentalApiUnitTest {
         val latch = CountDownLatch(1)
         bikeRentalApi.getBikeRental(
             success = {
-                latch.countDown()
                 s0 = it.stations?.get(0)
                 s1 = it.stations?.get(1)
+                latch.countDown()
+
             },
             failure = {
                 latch.countDown()

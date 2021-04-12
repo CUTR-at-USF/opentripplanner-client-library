@@ -23,8 +23,8 @@ class PlanApiUnitTest {
 
         planApi.getPlan(
             success = {
-                latch.countDown()
                 planner = it
+                latch.countDown()
             },
             failure = {
                 latch.countDown()
