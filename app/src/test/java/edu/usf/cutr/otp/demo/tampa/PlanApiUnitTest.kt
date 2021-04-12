@@ -85,7 +85,7 @@ class PlanApiUnitTest {
             planner.plan?.itineraries?.get(0)?.fare?.fare?.regular?.currency?.currency
         )
         assertEquals("$", planner.plan?.itineraries?.get(0)?.fare?.fare?.regular?.currency?.symbol)
-        assertEquals(200, planner.plan?.itineraries?.get(0)?.fare?.fare?.regular?.cents)
+        assertEquals(800, planner.plan?.itineraries?.get(0)?.fare?.fare?.regular?.cents)
 
         assertEquals(
             "1:1",
@@ -145,9 +145,9 @@ class PlanApiUnitTest {
         assertEquals("TRANSIT", legs?.from?.vertexType)
 
         assertEquals("University Area Transit Center", legs?.to?.name)
-        assertEquals("1:6497", legs?.from?.stopId)
-        assertEquals("6497", legs?.from?.stopCode)
-        assertEquals("6497", legs?.from?.platformCode)
+        assertEquals("1:6497", legs?.to?.stopId)
+        assertEquals("6497", legs?.to?.stopCode)
+        assertEquals("6497", legs?.to?.platformCode)
         assertEquals(55, legs?.to?.stopIndex)
         assertEquals(-82.429922, legs?.to?.lon)
         assertEquals(28.066021, legs?.to?.lat)
