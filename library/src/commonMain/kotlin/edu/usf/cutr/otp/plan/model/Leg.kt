@@ -20,7 +20,7 @@ import kotlinx.serialization.Polymorphic
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class Leg (
+data class Leg(
     val startTime: Long? = null,
     val endTime: Long? = null,
     val departureDelay: Int? = null,
@@ -31,6 +31,19 @@ data class Leg (
     val mode: String? = null,
     val transitLeg: Boolean? = null,
     val route: String? = null,
+    val routeColor: String? = null,
+    val routeId: String? = null,
+    val routeTextColor: String? = null,
+    val routeLongName: String? = null,
+    val routeShortName: String? = null,
+    val tripBlockId: String? = null,
+    val headsign: String? = null,
+    val tripId: String? = null,
+    val intermediateStops: List<String>? = null,
+    val serviceDate: String? = null,
+    val agencyName: String? = null,
+    val agencyUrl: String? = null,
+    val agencyId: String? = null,
     val agencyTimeZoneOffset: Int? = null,
     val interlineWithPreviousLeg: Boolean? = null,
     val from: From_? = null,
@@ -39,5 +52,5 @@ data class Leg (
     val steps: List<Step>? = null,
     val rentedBike: Boolean? = null,
     val duration: Double? = null,
-    val additionalProperties: MutableMap<String,@Polymorphic Any> = HashMap()
+    val additionalProperties: MutableMap<String, @Polymorphic Any> = HashMap()
 )

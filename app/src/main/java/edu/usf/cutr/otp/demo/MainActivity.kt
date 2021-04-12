@@ -62,9 +62,10 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
         planButton.setOnClickListener {
             requestParameters = RequestParameters(
-                fromPlace = latLong(41.84712, -87.64678),
-                toPlace = latLong(41.84584, -87.65214),
-                arriveBy = "false")
+                fromPlace = latLong(28.07599, -82.41523),
+                toPlace = latLong(28.05380, -82.43334),
+                arriveBy = "false"
+            )
             planApi = PlanApi("http://10.0.2.2:8080/otp/routers/default/plan",  requestParameters)
             planApi.getPlan(
                 success = { launch (Main) { logData(it) } },
