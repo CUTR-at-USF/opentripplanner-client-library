@@ -2,6 +2,7 @@ package edu.usf.cutr.otp.demo.chicago
 
 import edu.usf.cutr.otp.plan.api.PlanApi
 import edu.usf.cutr.otp.plan.model.Planner
+import edu.usf.cutr.otp.plan.model.RequestParameters
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert
 import org.junit.Test
@@ -13,7 +14,10 @@ class PlanApiUnitTest {
     @Test
     fun testPlanApi() {
         val planApi =
-            PlanApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/tests/library/src/jvmTest/kotlin/edu/usf/cutr/otp/resources/chicago/plan.json")
+            PlanApi(
+                "https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/tests/library/src/jvmTest/kotlin/edu/usf/cutr/otp/resources/chicago/plan.json",
+                RequestParameters()
+            )
         var planner = Planner()
         val latch = CountDownLatch(1)
 
