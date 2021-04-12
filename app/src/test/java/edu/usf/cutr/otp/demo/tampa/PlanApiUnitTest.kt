@@ -108,7 +108,7 @@ class PlanApiUnitTest {
             planner.plan?.itineraries?.get(0)?.fare?.details?.regular?.get(0)?.price?.currency?.symbol
         )
         assertEquals(
-            "1:1",
+            "1:12",
             planner.plan?.itineraries?.get(0)?.fare?.details?.regular?.get(0)?.routes?.get(0)
         )
 
