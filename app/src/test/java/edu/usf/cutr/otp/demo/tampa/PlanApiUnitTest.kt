@@ -51,12 +51,12 @@ class PlanApiUnitTest {
         assertEquals("TRANSIT", planner.plan?.from?.vertexType)
 
         assertEquals("Armenia Av @ Crest Av", planner.plan?.to?.name)
-        assertEquals("1:5246", planner.plan?.from?.stopId)
-        assertEquals("5246", planner.plan?.from?.stopCode)
-        assertEquals("5246", planner.plan?.from?.platformCode)
+        assertEquals("1:5246", planner.plan?.to?.stopId)
+        assertEquals("5246", planner.plan?.to?.stopCode)
+        assertEquals("5246", planner.plan?.to?.platformCode)
         assertEquals(-82.484411, planner.plan?.to?.lon)
         assertEquals(27.993709, planner.plan?.to?.lat)
-        assertEquals(24, planner.plan?.from?.stopIndex)
+        assertEquals(24, planner.plan?.to?.stopIndex)
         assertEquals("TRANSIT", planner.plan?.to?.vertexType)
 
         assertEquals(6569, planner.plan?.itineraries?.get(0)?.duration)
