@@ -121,7 +121,7 @@ class PlanApiUnitTest {
         assertEquals(2719.7720919457793, legs?.distance)
         assertEquals("BUS", legs?.mode)
         assertEquals("22nd Street", legs?.route)
-        assertEquals(true, legs?.pathway)
+        assertEquals(false, legs?.pathway)
         assertEquals(true, legs?.transitLeg)
         assertEquals("22nd Street", legs?.route)
         assertEquals("Hillsborough Area Regional Transit", legs?.agencyName)
