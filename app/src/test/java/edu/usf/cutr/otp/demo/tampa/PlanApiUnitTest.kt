@@ -19,7 +19,6 @@ class PlanApiUnitTest {
                 RequestParameters()
             )
         var planner = Planner()
-        var throwable = Throwable()
         val latch = CountDownLatch(1)
 
         planApi.getPlan(
@@ -29,9 +28,6 @@ class PlanApiUnitTest {
             },
             failure = {
                 latch.countDown()
-                if (it != null) {
-                    throwable = it
-                }
             }
         )
 
@@ -41,7 +37,6 @@ class PlanApiUnitTest {
             ex.printStackTrace()
         }
 
-        assertEquals(null, throwable)
         assertEquals("28.05198,-82.43042", planner.requestParameters?.fromPlace)
         assertEquals("27.99380,-82.48260", planner.requestParameters?.toPlace)
 
