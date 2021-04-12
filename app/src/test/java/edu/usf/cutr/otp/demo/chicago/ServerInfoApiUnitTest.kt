@@ -1,4 +1,4 @@
-package com.example.myapplication
+package edu.usf.cutr.otp.demo.chicago
 
 import edu.usf.cutr.otp.serverinfo.api.ServerInfoApi
 import edu.usf.cutr.otp.serverinfo.model.ServerInfo

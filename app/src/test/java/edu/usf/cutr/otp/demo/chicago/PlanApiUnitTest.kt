@@ -1,4 +1,4 @@
-package com.example.myapplication
+package edu.usf.cutr.otp.demo.chicago
 
 import edu.usf.cutr.otp.plan.api.PlanApi
 import edu.usf.cutr.otp.plan.model.Planner

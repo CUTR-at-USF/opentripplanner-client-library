@@ -1,4 +1,4 @@
-package com.example.myapplication
+package edu.usf.cutr.otp.demo.chicago
 
 import edu.usf.cutr.otp.bike_rental.api.BikeRentalApi
 import edu.usf.cutr.otp.bike_rental.model.Station
