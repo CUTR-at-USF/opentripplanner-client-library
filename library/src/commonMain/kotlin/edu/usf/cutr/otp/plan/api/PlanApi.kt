@@ -16,6 +16,7 @@
 
 package edu.usf.cutr.otp.plan.api
 
+import edu.usf.cutr.otp.Api
 import edu.usf.cutr.otp.ApplicationDispatcher
 import edu.usf.cutr.otp.plan.model.Planner
 import edu.usf.cutr.otp.plan.model.RequestParameters
@@ -32,8 +33,7 @@ import kotlinx.serialization.json.Json
  */
 
 class PlanApi(private val url: String,
-              private val requestParameters: RequestParameters) {
-
+              private val requestParameters: RequestParameters): Api() {
 
     /**
      * Function that fetches Planner resource information.
@@ -42,7 +42,6 @@ class PlanApi(private val url: String,
      */
     fun getPlan(
         success: (Planner) -> Unit, failure: (Throwable?) -> Unit) {
-
         GlobalScope.launch(ApplicationDispatcher) {
             try {
                 val parameters = buildParameters(requestParameters)
@@ -57,6 +56,7 @@ class PlanApi(private val url: String,
             }
         }
     }
+
     /**
      * Function to build the parameter values that is appended to the URL above
      * @param requestParameters - A RequestParameters.kt object to be appended with the URL.
@@ -112,6 +112,9 @@ class PlanApi(private val url: String,
         }
         if (requestParameters.unpreferredRoutes != null) {
             parameters.append("unpreferredRoutes", requestParameters.unpreferredRoutes.toString())
+        }
+        if (!apiKeyName.isNullOrEmpty() && !apiKeyValue.isNullOrEmpty()) {
+            parameters.append(apiKeyName, apiKeyValue)
         }
         return parameters
     }
