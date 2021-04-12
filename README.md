@@ -107,6 +107,18 @@ This command generates four JAR files in `library/build/libs` and we encourage y
 ./gradlew :library:build
 ```
 
+To install to your local Maven repository you can run:
+
+```
+./gradlew publishToMavenLocal
+```
+
+...and include the dependency on this library in your application as:
+
+```groovy
+implementation "edu.usf.cutr.otp:library-jvm:1.0.0"
+```
+
 ## License
 ```
 /*
