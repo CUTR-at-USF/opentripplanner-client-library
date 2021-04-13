@@ -1,4 +1,4 @@
-package edu.usf.cutr.otp.demo.chicago
+package edu.usf.cutr.otp.demo.tampa
 
 import edu.usf.cutr.otp.bike_rental.api.BikeRentalApi
 import edu.usf.cutr.otp.bike_rental.model.Station
@@ -13,7 +13,7 @@ class BikeRentalApiUnitTest {
     @Test
     fun testBikeRentalApi() {
         val bikeRentalApi =
-            BikeRentalApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/tests/library/src/jvmTest/kotlin/edu/usf/cutr/otp/resources/chicago/bike_rental.json")
+            BikeRentalApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/tests/library/src/jvmTest/kotlin/edu/usf/cutr/otp/resources/tampa/bike_rental.json")
         var s0: Station? = Station()
         var s1: Station? = Station()
         val latch = CountDownLatch(1)
@@ -31,10 +31,10 @@ class BikeRentalApiUnitTest {
 
         latch.await()
 
-        Assert.assertEquals("07ed36f0149a00dcd9a91f4d225bc4bb", s0?.id)
-        Assert.assertEquals("07ed36f0149a00dcd9a91f4d225bc4bb", s0?.name)
-        Assert.assertEquals(-87.64600616666667, s0?.x)
-        Assert.assertEquals(41.82783533333333, s0?.y)
+        Assert.assertEquals("a68e1aa9-d5da-44aa-adae-303bb55de171", s0?.id)
+        Assert.assertEquals("", s0?.name)
+        Assert.assertEquals(-82.4469, s0?.x)
+        Assert.assertEquals(27.99436, s0?.y)
         Assert.assertEquals(1, s0?.bikesAvailable)
         Assert.assertEquals(0, s0?.spacesAvailable)
         Assert.assertEquals(false, s0?.allowDropoff)
@@ -43,10 +43,10 @@ class BikeRentalApiUnitTest {
         Assert.assertEquals("GBFS", s0?.networks?.get(0))
         Assert.assertEquals(true, s0?.realTimeData)
 
-        Assert.assertEquals("dada93746259d171611c91134ce06f70", s1?.id)
-        Assert.assertEquals("dada93746259d171611c91134ce06f70", s1?.name)
-        Assert.assertEquals(-87.6340975, s1?.x)
-        Assert.assertEquals(41.84555266666667, s1?.y)
+        Assert.assertEquals("b5c57037-6bb4-4e03-9754-4bdd24515e3a", s1?.id)
+        Assert.assertEquals("", s1?.name)
+        Assert.assertEquals(-82.44429, s1?.x)
+        Assert.assertEquals(28.00068, s1?.y)
         Assert.assertEquals(1, s1?.bikesAvailable)
         Assert.assertEquals(0, s1?.spacesAvailable)
         Assert.assertEquals(false, s1?.allowDropoff)
@@ -54,6 +54,5 @@ class BikeRentalApiUnitTest {
         Assert.assertEquals(false, s1?.isCarStation)
         Assert.assertEquals("GBFS", s1?.networks?.get(0))
         Assert.assertEquals(true, s1?.realTimeData)
-
     }
 }

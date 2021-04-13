@@ -31,11 +31,8 @@ class PlanApiUnitTest {
             }
         )
 
-        try {
-            latch.await()
-        } catch (ex: Exception) {
-            ex.printStackTrace()
-        }
+        latch.await()
+
 
         assertEquals("28.05198,-82.43042", planner.requestParameters?.fromPlace)
         assertEquals("27.99380,-82.48260", planner.requestParameters?.toPlace)
