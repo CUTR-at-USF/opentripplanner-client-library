@@ -1,16 +1,14 @@
-package edu.usf.cutr.otp.demo.chicago
+package edu.usf.cutr.otp.chicago
 
 import edu.usf.cutr.otp.plan.api.PlanApi
 import edu.usf.cutr.otp.plan.model.Planner
 import edu.usf.cutr.otp.plan.model.RequestParameters
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert
 import org.junit.Test
 import java.util.concurrent.CountDownLatch
 
 class PlanApiUnitTest {
 
-    @ExperimentalCoroutinesApi
     @Test
     fun testPlanApi() {
         val planApi =

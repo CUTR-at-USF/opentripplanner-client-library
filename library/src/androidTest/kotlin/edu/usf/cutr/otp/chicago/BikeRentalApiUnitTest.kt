@@ -1,15 +1,13 @@
-package edu.usf.cutr.otp.demo.chicago
+package edu.usf.cutr.otp.chicago
 
 import edu.usf.cutr.otp.bike_rental.api.BikeRentalApi
 import edu.usf.cutr.otp.bike_rental.model.Station
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert
 import org.junit.Test
 import java.util.concurrent.CountDownLatch
 
 class BikeRentalApiUnitTest {
 
-    @ExperimentalCoroutinesApi
     @Test
     fun testBikeRentalApi() {
         val bikeRentalApi =

@@ -1,4 +1,4 @@
-package edu.usf.cutr.otp.demo.tampa
+package edu.usf.cutr.otp.chicago
 
 import edu.usf.cutr.otp.serverinfo.api.ServerInfoApi
 import edu.usf.cutr.otp.serverinfo.model.ServerInfo
@@ -7,11 +7,10 @@ import org.junit.Test
 import java.util.concurrent.CountDownLatch
 
 class ServerInfoApiUnitTest {
-
     @Test
     fun testServerInfoApi() {
         val serverInfoApi =
-            ServerInfoApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/tests/library/src/jvmTest/resources/tampa/server_info.json")
+            ServerInfoApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/tests/library/src/jvmTest/resources/chicago/server_info.json")
 
         var serverInfo = ServerInfo()
         val latch = CountDownLatch(1)
@@ -26,7 +25,9 @@ class ServerInfoApiUnitTest {
             }
         )
 
+
         latch.await()
+
 
         Assert.assertEquals("2.0.0", serverInfo.serverVersion?.version)
         Assert.assertEquals(2, serverInfo.serverVersion?.major)

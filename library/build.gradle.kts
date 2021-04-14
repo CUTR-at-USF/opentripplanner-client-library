@@ -47,14 +47,21 @@ kotlin {
             dependencies {
                 implementation("androidx.core:core-ktx:1.3.2")
                 implementation(
-                    "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion")
+                    "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+                )
                 implementation("io.ktor:ktor-client-android:$ktorVersion")
+            }
+        }
+
+        val androidTest by getting {
+            dependencies {
+                implementation("junit:junit:4.13.2")
             }
         }
         val iosMain by getting {
             dependencies {
                 implementation("io.ktor:ktor-client-ios:$ktorVersion")
-                implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion-native-mt") {
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion-native-mt") {
                     version {
                         strictly("$coroutineVersion-native-mt")
                     }
