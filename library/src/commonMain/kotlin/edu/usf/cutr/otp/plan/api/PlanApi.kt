@@ -32,8 +32,10 @@ import kotlinx.serialization.json.Json
  *@param url - Full URL to Planner Resource API, Ex: "https://10.0.2.2:8080/otp/routers/default/plan"
  */
 
-class PlanApi(private val url: String,
-              private val requestParameters: RequestParameters): Api() {
+class PlanApi(
+    private val url: String,
+    private val requestParameters: RequestParameters
+) : Api() {
 
     /**
      * Function that fetches Planner resource information.
@@ -41,14 +43,17 @@ class PlanApi(private val url: String,
      * @param failure -> Represents a failed outcome.
      */
     fun getPlan(
-        success: (Planner) -> Unit, failure: (Throwable?) -> Unit) {
+        success: (Planner) -> Unit, failure: (Throwable?) -> Unit
+    ) {
         GlobalScope.launch(ApplicationDispatcher) {
             try {
-                val parameters = buildParameters(requestParameters)
-                val url = URLBuilder(
-                    parameters = parameters,
-                ).takeFrom(url).buildString()
-                val json = HttpClient().get<String>(url)
+                val urlString = run {
+                    val parameters = buildParameters(requestParameters)
+                    URLBuilder(
+                        parameters = parameters,
+                    ).takeFrom(url).buildString()
+                }
+                val json = HttpClient().get<String>(urlString)
 
                 Json.decodeFromString(Planner.serializer(), json).also(success)
             } catch (ex: Exception) {
