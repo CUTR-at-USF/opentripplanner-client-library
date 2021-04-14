@@ -64,7 +64,7 @@ kotlin {
 
         val jvmMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-java:$ktorVersion")
+                implementation("io.ktor:ktor-client-apache:1.5.0")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:$coroutineVersion")
             }
         }
@@ -72,9 +72,6 @@ kotlin {
         val jvmTest by getting {
             dependencies {
                 implementation("junit:junit:4.13.2")
-                implementation("org.junit.jupiter:junit-jupiter-api:5.6.0")
-                implementation("org.junit.jupiter:junit-jupiter-params:5.6.0")
-                implementation("io.ktor:ktor-client-java:$ktorVersion")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:$coroutineVersion")
             }
         }
