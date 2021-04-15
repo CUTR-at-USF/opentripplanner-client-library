@@ -35,7 +35,9 @@ class ServerInfoApi (private val url: String): Api() {
                     parameters = parameters,
                 ).takeFrom(url).build()
 
-                val json = HttpClient().get<String>(url)
+                val httpClient = HttpClient()
+                val json = httpClient.get<String>(url)
+                httpClient.close()
                 Json.decodeFromString(ServerInfo.serializer(), json).also(success)
 
 
