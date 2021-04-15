@@ -53,8 +53,9 @@ class PlanApi(
                         parameters = parameters,
                     ).takeFrom(url).buildString()
                 }
-                val json = HttpClient().get<String>(urlString)
-
+                val httpClient = HttpClient()
+                val json = httpClient.get<String>(urlString)
+                httpClient.close()
                 Json.decodeFromString(Planner.serializer(), json).also(success)
             } catch (ex: Exception) {
                 failure(ex)
