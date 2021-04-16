@@ -13,7 +13,7 @@ class PlanApiUnitTest {
     fun testPlanApi() {
         val planApi =
             PlanApi(
-                "https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/main/library/src/jvmTest/resources/tampa/plan.json",
+                "https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/main/otp-client-library/src/jvmTest/resources/tampa/plan.json",
                 RequestParameters()
             )
         var planner = Planner()

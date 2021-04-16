@@ -11,7 +11,7 @@ class BikeRentalApiUnitTest {
     @Test
     fun testBikeRentalApi() {
         val bikeRentalApi =
-            BikeRentalApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/main/library/src/jvmTest/resources/chicago/bike_rental.json")
+            BikeRentalApi("https://raw.githubusercontent.com/CUTR-at-USF/opentripplanner-client-library/main/otp-client-library/src/jvmTest/resources/chicago/bike_rental.json")
         var s0: Station? = Station()
         var s1: Station? = Station()
         val latch = CountDownLatch(1)
