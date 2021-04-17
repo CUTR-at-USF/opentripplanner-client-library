@@ -126,7 +126,7 @@ To install to your local Maven repository you can run:
 ...and include the dependency on this library in your application as:
 
 ```groovy
-implementation "edu.usf.cutr.otp:library-jvm:1.0.0"
+implementation "edu.usf.cutr.otp:otp-client-library-jvm:1.0.0"
 ```
 
 ## License
