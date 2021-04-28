@@ -23,7 +23,7 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RequestParameters
-(
+    (
     val fromPlace: String? = null,
     val toPlace: String? = null,
     val alightSlack: Int? = null,
@@ -37,6 +37,7 @@ data class RequestParameters
     val triangleSafetyFactor: Double? = null,
     val wheelchair: String? = null,
     val date: String? = null,
+    val time: String? = null,
     val numItineraries: Int? = 3,
     val preferredRoutes: List<String>? = null,
     val unpreferredRoutes: List<String>? = null,
