@@ -119,6 +119,9 @@ class PlanApi(
         if (requestParameters.unpreferredRoutes != null) {
             parameters.append("unpreferredRoutes", requestParameters.unpreferredRoutes.toString())
         }
+        if (requestParameters.time != null) {
+            parameters.append("time", requestParameters.time.toString())
+        }
         if (!apiKeyName.isNullOrEmpty() && !apiKeyValue.isNullOrEmpty()) {
             parameters.append(apiKeyName, apiKeyValue)
         }
