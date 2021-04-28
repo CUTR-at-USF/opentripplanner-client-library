@@ -36,8 +36,8 @@ data class RequestParameters
     val triangleSlopeFactor: Double? = null,
     val triangleSafetyFactor: Double? = null,
     val wheelchair: String? = null,
-    val date: String? = null,
-    val time: String? = null,
+    val date: String? = null, // supported date format is MM-dd-yyyy. ex: 09-30-2020
+    val time: String? = null, // supported time format is h:mma, ex 7:45PM
     val numItineraries: Int? = 3,
     val preferredRoutes: List<String>? = null,
     val unpreferredRoutes: List<String>? = null,
