@@ -95,10 +95,10 @@ To create a release of the library on each platform, run the following commands.
 
 #### Android
 
-This command generates AAR files in `library/build/outputs/aar`:
+This command generates AAR files in `otp-client-library/build/outputs/aar`:
 
 ```
-./gradlew :library:build
+./gradlew :otp-client-library:build
 ```
 
 #### iOS
