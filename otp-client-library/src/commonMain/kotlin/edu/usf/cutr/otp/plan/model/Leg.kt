@@ -50,6 +50,7 @@ data class Leg(
     val to: To_? = null,
     val legGeometry: LegGeometry? = null,
     val steps: List<Step>? = null,
+    val alerts: List<Alert>? = null,
     val rentedBike: Boolean? = null,
     val duration: Double? = null,
     val additionalProperties: MutableMap<String, @Polymorphic Any> = HashMap()

@@ -24,5 +24,6 @@ data class Error
 (
     val id: Int? = null,
     val message: String? = null,
+    val msg: String? = null, // See https://github.com/opentripplanner/OpenTripPlanner/issues/3581
     val additionalProperties: MutableMap<String, @Polymorphic Any> = HashMap()
 )
