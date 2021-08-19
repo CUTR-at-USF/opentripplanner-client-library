@@ -23,6 +23,7 @@ package edu.usf.cutr.otp
 abstract class Api {
     internal var apiKeyName: String = ""
     internal var apiKeyValue: String = ""
+    internal var requestTimeoutMillis: Long = 10000L
 
     /**
      * Sets the API key if needed to make the request
@@ -32,5 +33,12 @@ abstract class Api {
     fun apiKey(name: String, value: String) {
         apiKeyName = name
         apiKeyValue = value
+    }
+
+    /**
+     * Sets the HTTP request timeout to [timeoutMillis], which is in milliseconds
+     */
+    fun requestTimeOutMillis(timeoutMillis: Long) {
+        requestTimeoutMillis = requestTimeoutMillis
     }
 }

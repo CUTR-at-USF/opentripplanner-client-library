@@ -4,6 +4,7 @@ import edu.usf.cutr.otp.Api
 import edu.usf.cutr.otp.ApplicationDispatcher
 import edu.usf.cutr.otp.serverinfo.model.ServerInfo
 import io.ktor.client.*
+import io.ktor.client.features.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 import kotlinx.coroutines.GlobalScope
@@ -35,7 +36,11 @@ class ServerInfoApi (private val url: String): Api() {
                     parameters = parameters,
                 ).takeFrom(url).build()
 
-                val httpClient = HttpClient()
+                val httpClient = HttpClient {
+                    install(HttpTimeout) {
+                        requestTimeoutMillis = this@ServerInfoApi.requestTimeoutMillis
+                    }
+                }
                 val json = httpClient.get<String>(url)
                 httpClient.close()
                 Json.decodeFromString(ServerInfo.serializer(), json).also(success)

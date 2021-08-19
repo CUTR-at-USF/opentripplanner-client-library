@@ -21,6 +21,7 @@ import edu.usf.cutr.otp.ApplicationDispatcher
 import edu.usf.cutr.otp.plan.model.Planner
 import edu.usf.cutr.otp.plan.model.RequestParameters
 import io.ktor.client.*
+import io.ktor.client.features.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 import kotlinx.coroutines.GlobalScope
@@ -53,7 +54,11 @@ class PlanApi(
                         parameters = parameters,
                     ).takeFrom(url).buildString()
                 }
-                val httpClient = HttpClient()
+                val httpClient = HttpClient {
+                    install(HttpTimeout) {
+                        requestTimeoutMillis = this@PlanApi.requestTimeoutMillis
+                    }
+                }
                 val json = httpClient.get<String>(urlString)
                 httpClient.close()
                 Json.decodeFromString(Planner.serializer(), json).also(success)
