@@ -16,10 +16,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up JDK 1.8
-      uses: actions/setup-java@v1
+    - uses: gradle/wrapper-validation-action@v1.0.4
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2.2.0
       with:
-        java-version: 1.8
+        java-version: 11
+        distribution: 'adopt'
     - name: Set up XCode
       uses: maxim-lobanov/setup-xcode@master
       with:

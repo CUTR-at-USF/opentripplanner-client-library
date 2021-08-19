@@ -1,12 +1,11 @@
 
-val ktorVersion = "1.5.3"
-val coroutineVersion = "1.4.3"
+val ktorVersion = "1.6.2"
+val coroutineVersion = "1.5.1"
 
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("kotlinx-serialization")
-    id("kotlin-android-extensions")
     id("com.chromaticnoise.multiplatform-swiftpackage") version "2.0.3"
     id("maven-publish")
 }
@@ -38,14 +37,14 @@ kotlin {
                     }
                 }
                 implementation(
-                    "org.jetbrains.kotlinx:kotlinx-serialization-json:1.1.0")
+                    "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
             }
         }
 
         val androidMain by getting {
             dependencies {
-                implementation("androidx.core:core-ktx:1.3.2")
+                implementation("androidx.core:core-ktx:1.6.0")
                 implementation(
                     "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
                 )
