@@ -39,6 +39,6 @@ abstract class Api {
      * Sets the HTTP request timeout to [timeoutMillis], which is in milliseconds
      */
     fun requestTimeOutMillis(timeoutMillis: Long) {
-        requestTimeoutMillis = requestTimeoutMillis
+        requestTimeoutMillis = timeoutMillis
     }
 }
