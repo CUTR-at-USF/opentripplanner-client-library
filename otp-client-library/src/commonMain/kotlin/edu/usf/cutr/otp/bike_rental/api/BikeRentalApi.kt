@@ -55,7 +55,6 @@ class BikeRentalApi(private val url: String,
                 val httpClient = HttpClient {
                     install(HttpTimeout) {
                         requestTimeoutMillis = this@BikeRentalApi.requestTimeoutMillis
-                        connectionTimeoutMillis = this@BikeRentalApi.connectionTimeoutMillis
                         socketTimeoutMillis = this@BikeRentalApi.socketTimeoutMillis
                     }
                 }

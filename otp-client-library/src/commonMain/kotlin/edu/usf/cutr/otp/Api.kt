@@ -45,13 +45,6 @@ abstract class Api {
     }
 
     /**
-     * Sets the connection timeout (a time period in which a client should establish a connection with a server) to [timeoutMillis], which is in milliseconds
-     */
-    fun connectionTimeOutMillis(timeoutMillis: Long) {
-        connectionTimeoutMillis = timeoutMillis
-    }
-
-    /**
      * Sets the socket timeout (a maximum time of inactivity between two data packets when exchanging data with a server) to [timeoutMillis], which is in milliseconds
      */
     fun socketTimeOutMillis(timeoutMillis: Long) {

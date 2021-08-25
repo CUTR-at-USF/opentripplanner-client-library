@@ -57,7 +57,6 @@ class PlanApi(
                 val httpClient = HttpClient() {
                     install(HttpTimeout) {
                         requestTimeoutMillis = this@PlanApi.requestTimeoutMillis
-                        connectionTimeoutMillis = this@PlanApi.connectionTimeoutMillis
                         socketTimeoutMillis = this@PlanApi.socketTimeoutMillis
                     }
                 }
