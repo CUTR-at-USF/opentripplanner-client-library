@@ -29,7 +29,7 @@ class ServerInfoApi (private val url: String): Api() {
         GlobalScope.launch(ApplicationDispatcher) {
             try {
                 val parameters = ParametersBuilder()
-                if (!apiKeyName.isNullOrEmpty() && !apiKeyValue.isNullOrEmpty()) {
+                if (apiKeyName.isNotEmpty() && apiKeyValue.isNotEmpty()) {
                     parameters.append(apiKeyName, apiKeyValue)
                 }
                 val url = URLBuilder(

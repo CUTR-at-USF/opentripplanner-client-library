@@ -82,7 +82,7 @@ class BikeRentalApi(private val url: String,
         if (upperRight != null) {
             parameters.append("upperRight", upperRight)
         }
-        if (!apiKeyName.isNullOrEmpty() && !apiKeyValue.isNullOrEmpty()) {
+        if (apiKeyName.isNotEmpty() && apiKeyValue.isNotEmpty()) {
             parameters.append(apiKeyName, apiKeyValue)
         }
         return parameters
