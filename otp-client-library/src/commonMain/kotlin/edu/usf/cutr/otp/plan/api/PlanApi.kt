@@ -54,9 +54,11 @@ class PlanApi(
                         parameters = parameters,
                     ).takeFrom(url).buildString()
                 }
-                val httpClient = HttpClient {
+                val httpClient = HttpClient() {
                     install(HttpTimeout) {
                         requestTimeoutMillis = this@PlanApi.requestTimeoutMillis
+                        connectionTimeoutMillis = this@PlanApi.connectionTimeoutMillis
+                        socketTimeoutMillis = this@PlanApi.socketTimeoutMillis
                     }
                 }
                 val json = httpClient.get<String>(urlString)

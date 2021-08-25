@@ -24,6 +24,8 @@ abstract class Api {
     internal var apiKeyName: String = ""
     internal var apiKeyValue: String = ""
     internal var requestTimeoutMillis: Long = 10000L
+    internal var connectionTimeoutMillis: Long = 10000L
+    internal var socketTimeoutMillis: Long = 10000L
 
     /**
      * Sets the API key if needed to make the request
@@ -36,9 +38,23 @@ abstract class Api {
     }
 
     /**
-     * Sets the HTTP request timeout to [timeoutMillis], which is in milliseconds
+     * Sets the HTTP request timeout (a time period required to process an HTTP call: from sending a request to receiving a response) to [timeoutMillis], which is in milliseconds
      */
     fun requestTimeOutMillis(timeoutMillis: Long) {
         requestTimeoutMillis = timeoutMillis
+    }
+
+    /**
+     * Sets the connection timeout (a time period in which a client should establish a connection with a server) to [timeoutMillis], which is in milliseconds
+     */
+    fun connectionTimeOutMillis(timeoutMillis: Long) {
+        connectionTimeoutMillis = timeoutMillis
+    }
+
+    /**
+     * Sets the socket timeout (a maximum time of inactivity between two data packets when exchanging data with a server) to [timeoutMillis], which is in milliseconds
+     */
+    fun socketTimeOutMillis(timeoutMillis: Long) {
+        socketTimeoutMillis = timeoutMillis
     }
 }

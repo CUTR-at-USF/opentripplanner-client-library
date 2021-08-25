@@ -39,6 +39,8 @@ class ServerInfoApi (private val url: String): Api() {
                 val httpClient = HttpClient {
                     install(HttpTimeout) {
                         requestTimeoutMillis = this@ServerInfoApi.requestTimeoutMillis
+                        connectionTimeoutMillis = this@ServerInfoApi.connectionTimeoutMillis
+                        socketTimeoutMillis = this@ServerInfoApi.socketTimeoutMillis
                     }
                 }
                 val json = httpClient.get<String>(url)
