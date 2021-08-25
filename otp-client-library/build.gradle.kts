@@ -37,7 +37,7 @@ kotlin {
                     }
                 }
                 implementation(
-                    "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1")
+                    "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.2")
                 implementation("io.ktor:ktor-client-core:$ktorVersion")
             }
         }
@@ -70,7 +70,7 @@ kotlin {
 
         val jvmMain by getting {
             dependencies {
-                implementation("io.ktor:ktor-client-apache:1.5.0")
+                implementation("io.ktor:ktor-client-apache:1.6.2")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-swing:$coroutineVersion")
             }
         }
