@@ -36,5 +36,6 @@ data class Itinerary (
     val fare: Fare? = null,
     val legs: List<Leg>? = null,
     val tooSloped: Boolean? = null,
+    val arrivedAtDestinationWithRentedBicycle: Boolean? = null,
     val additionalProperties: MutableMap<String,@Polymorphic Any> = HashMap()
 )
