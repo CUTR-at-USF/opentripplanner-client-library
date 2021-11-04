@@ -63,7 +63,7 @@ class BikeRentalApi(private val url: String,
                 }
                 val json = httpClient.get<String>(url)
                 httpClient.close()
-                val format = Json { ignoreUnknownKeys = true }
+                val format = Json { ignoreUnknownKeys = this@BikeRentalApi.ignoreUnknownKeys }
                 format.decodeFromString(Stations.serializer(), json).also(success)
             } catch (ex: Exception) {
                 failure(ex)

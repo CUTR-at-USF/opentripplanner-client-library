@@ -47,7 +47,7 @@ class ServerInfoApi (private val url: String): Api() {
                 }
                 val json = httpClient.get<String>(url)
                 httpClient.close()
-                val format = Json { ignoreUnknownKeys = true }
+                val format = Json { ignoreUnknownKeys = this@ServerInfoApi.ignoreUnknownKeys }
                 format.decodeFromString(ServerInfo.serializer(), json).also(success)
             } catch (ex: Exception) {
                 failure(ex)

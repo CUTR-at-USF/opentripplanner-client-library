@@ -27,6 +27,7 @@ abstract class Api {
     internal var connectionTimeoutMillis: Long = 10000L
     internal var socketTimeoutMillis: Long = 10000L
     internal var debug: Boolean = false
+    internal var ignoreUnknownKeys: Boolean = true
 
     /**
      * Sets the API key if needed to make the request
@@ -57,5 +58,12 @@ abstract class Api {
      */
     fun debug(value: Boolean) {
         debug = value
+    }
+
+    /**
+     * Set the [value] to false to fail on unknown fields in the OTP JSON response.
+     */
+    fun ignoreUnknownKeys(value: Boolean) {
+        ignoreUnknownKeys = value
     }
 }
