@@ -58,10 +58,12 @@ class BikeRentalApi(private val url: String,
                         socketTimeoutMillis = this@BikeRentalApi.socketTimeoutMillis
                     }
                 }
+                if (debug) {
+                    println(url)
+                }
                 val json = httpClient.get<String>(url)
                 httpClient.close()
                 Json.decodeFromString(Stations.serializer(), json).also(success)
-
             } catch (ex: Exception) {
                 failure(ex)
             }

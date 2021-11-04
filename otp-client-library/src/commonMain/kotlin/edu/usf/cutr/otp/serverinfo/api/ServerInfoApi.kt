@@ -42,11 +42,12 @@ class ServerInfoApi (private val url: String): Api() {
                         socketTimeoutMillis = this@ServerInfoApi.socketTimeoutMillis
                     }
                 }
+                if (debug) {
+                    println(url)
+                }
                 val json = httpClient.get<String>(url)
                 httpClient.close()
                 Json.decodeFromString(ServerInfo.serializer(), json).also(success)
-
-
             } catch (ex: Exception) {
                 failure(ex)
             }

@@ -60,6 +60,9 @@ class PlanApi(
                         socketTimeoutMillis = this@PlanApi.socketTimeoutMillis
                     }
                 }
+                if (debug) {
+                    println(urlString)
+                }
                 val json = httpClient.get<String>(urlString)
                 httpClient.close()
                 Json.decodeFromString(Planner.serializer(), json).also(success)

@@ -26,6 +26,7 @@ abstract class Api {
     internal var requestTimeoutMillis: Long = 10000L
     internal var connectionTimeoutMillis: Long = 10000L
     internal var socketTimeoutMillis: Long = 10000L
+    internal var debug: Boolean = false
 
     /**
      * Sets the API key if needed to make the request
@@ -49,5 +50,12 @@ abstract class Api {
      */
     fun socketTimeOutMillis(timeoutMillis: Long) {
         socketTimeoutMillis = timeoutMillis
+    }
+
+    /**
+     * Set the [value] to true to print out debug information
+     */
+    fun debug(value: Boolean) {
+        debug = value
     }
 }
