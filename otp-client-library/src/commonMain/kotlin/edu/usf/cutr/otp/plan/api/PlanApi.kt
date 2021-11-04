@@ -65,7 +65,8 @@ class PlanApi(
                 }
                 val json = httpClient.get<String>(urlString)
                 httpClient.close()
-                Json.decodeFromString(Planner.serializer(), json).also(success)
+                val format = Json { ignoreUnknownKeys = true }
+                format.decodeFromString(Planner.serializer(), json).also(success)
             } catch (ex: Exception) {
                 failure(ex)
             }

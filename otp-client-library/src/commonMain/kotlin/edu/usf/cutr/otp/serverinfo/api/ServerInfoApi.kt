@@ -47,7 +47,8 @@ class ServerInfoApi (private val url: String): Api() {
                 }
                 val json = httpClient.get<String>(url)
                 httpClient.close()
-                Json.decodeFromString(ServerInfo.serializer(), json).also(success)
+                val format = Json { ignoreUnknownKeys = true }
+                format.decodeFromString(ServerInfo.serializer(), json).also(success)
             } catch (ex: Exception) {
                 failure(ex)
             }
