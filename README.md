@@ -87,7 +87,7 @@ Alternately, you can build from the command line using Gradle:
 
 ## Testing
 1. [Set up an OTP2 server](http://docs.opentripplanner.org/en/latest/Basic-Tutorial/) on your local machine, or get the URL for a public OTP2 server
-1. If you're testing the demo Android app on a physical device, make sure to change the host to `localhost` or `127.0.0.1` in the API constructors and also make note of the port number your OTP server is running on.
+1. If you're testing the demo Android app on an emulator, you can use the default hard-coded host in [MainActivity.kt](app/src/main/java/edu/usf/cutr/otp/demo/MainActivity.kt) of `10.0.2.2:8080`. If you're testing on a physical device, make sure to change the host and port number in the API constructors to match the computer on your local network running OTP.
 1. Click on the green play button on top to run the Android demo app. OTP API responses will be logged in LogCat with the tag `MainActivity`.
 
 ## Release

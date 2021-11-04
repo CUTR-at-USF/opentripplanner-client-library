@@ -67,6 +67,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
                 arriveBy = "false"
             )
             planApi = PlanApi("http://10.0.2.2:8080/otp/routers/default/plan",  requestParameters)
+            planApi.debug(true)
             planApi.getPlan(
                 success = { launch (Main) { logData(it) } },
                 failure = ::handleError
@@ -77,7 +78,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
             bikeRentalApi = BikeRentalApi("http://10.0.2.2:8080/otp/routers/default/bike_rental",
                 lowerLeft = latLong(41.81712, -87.62678),
                 upperRight = latLong(41.84584, -87.65214))
-
+            bikeRentalApi.debug(true)
             bikeRentalApi.getBikeRental(
                 success = {launch (Main) { logData(it) }},
                 failure = ::handleError
@@ -86,6 +87,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
         serverInfoButton.setOnClickListener {
             serverInfoApi = ServerInfoApi("http://10.0.2.2:8080/otp")
+            serverInfoApi.debug(true)
             serverInfoApi.getServerInfo(
                 success = {launch (Main) { logData(it) }},
                 failure = ::handleError
