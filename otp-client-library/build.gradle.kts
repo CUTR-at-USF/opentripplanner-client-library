@@ -1,6 +1,6 @@
 
-val ktorVersion = "1.6.2"
-val coroutineVersion = "1.5.1"
+val ktorVersion = "1.6.5"
+val coroutineVersion = "1.5.2"
 
 plugins {
     kotlin("multiplatform")
@@ -44,7 +44,7 @@ kotlin {
 
         val androidMain by getting {
             dependencies {
-                implementation("androidx.core:core-ktx:1.6.0")
+                implementation("androidx.core:core-ktx:1.7.0")
                 implementation(
                     "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
                 )
