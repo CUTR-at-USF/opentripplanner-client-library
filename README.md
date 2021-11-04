@@ -114,7 +114,7 @@ This command generates Swift package files in `common/swiftpackage` directory:
 This command generates four JAR files in `library/build/libs` and we encourage you to use `library-jvm-1.0.0.jar` for manually including dependencies:
 
 ```
-./gradlew :library:build
+./gradlew :otp-client-library:build
 ```
 
 To install to your local Maven repository you can run:
