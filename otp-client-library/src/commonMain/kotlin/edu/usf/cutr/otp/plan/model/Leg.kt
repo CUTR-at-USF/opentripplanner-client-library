@@ -27,6 +27,7 @@ data class Leg(
     val arrivalDelay: Int? = null,
     val realTime: Boolean? = null,
     val distance: Double? = null,
+    val generalizedCost: Int? = null,
     val pathway: Boolean? = null,
     val mode: String? = null,
     val transitLeg: Boolean? = null,

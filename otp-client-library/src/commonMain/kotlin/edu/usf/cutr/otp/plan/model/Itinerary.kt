@@ -29,6 +29,7 @@ data class Itinerary (
     val waitingTime: Int? = null,
     val walkDistance: Double? = null,
     val walkLimitExceeded: Boolean? = null,
+    val generalizedCost: Int? = null,
     val elevationLost: Double? = null,
     val elevationGained: Double? = null,
     val transfers: Int? = null,
