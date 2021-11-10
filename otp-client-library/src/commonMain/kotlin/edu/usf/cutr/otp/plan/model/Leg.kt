@@ -53,7 +53,9 @@ data class Leg(
     val steps: List<Step>? = null,
     val alerts: List<Alert>? = null,
     val walkingBike: Boolean? = null,
+    @Deprecated("OTP server v2.1 and higher replace rentedBike with rentedVehicle")
     val rentedBike: Boolean? = null,
+    val rentedVehicle: Boolean? = null,
     val duration: Double? = null,
     val additionalProperties: MutableMap<String, @Polymorphic Any> = HashMap()
 )
