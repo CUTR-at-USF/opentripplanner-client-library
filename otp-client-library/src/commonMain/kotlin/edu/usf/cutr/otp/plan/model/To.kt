@@ -27,6 +27,7 @@ data class To
     val stopCode: String? = null,
     val platformCode: String? = null,
     val stopIndex: Int? = null,
+    val stopSequence: Int? = null,
     val lon: Double? = null,
     val lat: Double? = null,
     val vertexType: String? = null,
