@@ -23,11 +23,14 @@ import androidx.appcompat.app.AppCompatActivity
 import edu.usf.cutr.otp.bike_rental.api.BikeRentalApi
 import edu.usf.cutr.otp.plan.api.PlanApi
 import edu.usf.cutr.otp.plan.model.RequestParameters
+import edu.usf.cutr.otp.plan.model.core.TraverseModes
 import edu.usf.cutr.otp.serverinfo.api.ServerInfoApi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import kotlin.coroutines.CoroutineContext
 
 class MainActivity : AppCompatActivity(), CoroutineScope {
@@ -60,11 +63,17 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         serverInfoButton = findViewById(R.id.server_info_button)
         responseText = findViewById(R.id.response_view)
 
+        val startDateTime = getDateFromTimeStamp("2020-10-01T00:00:00.000", "yyyy-MM-dd'T'HH:mm:ss.SSS") // Processed time format from CalPoly
+
+        val date = startDateTime.format(DateTimeFormatter.ofPattern("MM-dd-yyyy"))
+        val time = startDateTime.format(DateTimeFormatter.ofPattern("h:mma"))
+
         planButton.setOnClickListener {
             requestParameters = RequestParameters(
                 fromPlace = latLong(41.77887686, -87.59492544),
                 toPlace = latLong(41.70658788, -87.62336651),
-                arriveBy = "false"
+                date = date.toString(), time = time.toString(),
+                traverseModes = TraverseModes.TRANSIT
             )
             planApi = PlanApi("http://10.0.2.2:8080/otp/routers/default/plan",  requestParameters)
             planApi.debug(true)
@@ -107,5 +116,16 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
 
     private fun latLong(lat: Double, long: Double): String {
         return "$lat,$long"
+    }
+
+    /**
+     * Function to convert timestamp to LocalDateTime object.
+     * @param timeStamp String timestamp from the data
+     * @param pattern Pattern of the data
+     * @return returns LocalDateTime object
+     */
+    fun getDateFromTimeStamp(timeStamp: String, pattern: String): LocalDateTime {
+        val formatter = DateTimeFormatter.ofPattern(pattern)
+        return LocalDateTime.parse(timeStamp, formatter)
     }
 }
